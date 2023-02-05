@@ -10,7 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.ManyToAny;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
+
+
 
 
 @Entity
@@ -22,7 +25,9 @@ public class Pedido  implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+     
 
+    @JsonFormat(shape =JsonFormat.Shape.STRING,pattern = "yyy-MM-dd'T'HH:mm:ss'Z'",timezone ="GMT")
     private Instant momento; 
     
 
