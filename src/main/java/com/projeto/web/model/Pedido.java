@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.projeto.web.model.enums.PedidoStatus;
-import com.projeto.web.service.PedidoService;
+
 
 
 
