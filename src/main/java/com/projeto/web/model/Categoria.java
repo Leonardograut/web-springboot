@@ -1,11 +1,14 @@
 package com.projeto.web.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Categoria  implements Serializable{
@@ -18,6 +21,16 @@ public class Categoria  implements Serializable{
     private String name;
     
     
+    @Transient
+    private Set<Produto> produtos = new HashSet<>();
+
+
+
+    public Set<Produto> getProdutos() {
+        return produtos;
+    }
+
+
     public Long getId() {
         return id;
     }
