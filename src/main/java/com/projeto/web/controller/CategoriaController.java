@@ -15,7 +15,7 @@ import com.projeto.web.service.CategoriaService;
 
 
 @RestController
-@RequestMapping("/categoria")
+@RequestMapping("/categorias")
 public class CategoriaController {
  
     @Autowired
