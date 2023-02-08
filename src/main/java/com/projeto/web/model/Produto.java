@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -104,7 +105,14 @@ public class Produto implements Serializable{
        }
       
 
-
+     @JsonIgnore
+     public Set<Pedido>getPedidos(){
+        Set<Pedido> set = new HashSet<>();
+        for (PedidoItem x : items){
+            set.add(x.getPedido());
+        }
+        return set;
+     }
     
 
     public Produto(Long id, String nome, String descricao, Double preco, String imgUrl) {
@@ -127,7 +135,10 @@ public class Produto implements Serializable{
     private Set<Categoria> categorias = new HashSet<>();
 
 
-
+    
+    
+    @OneToMany(mappedBy = "id.produto")
+    private Set<PedidoItem>items = new HashSet<>();
 
   
     
