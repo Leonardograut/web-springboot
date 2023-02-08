@@ -146,6 +146,15 @@ public class Pedido  implements Serializable{
 
 
 
+  public Double getTotal(){
+    double sum =0.0;
+    for(PedidoItem x :items){
+        sum = sum + x.getSubTotal();
+    }
+    return sum;
+
+  }
+
 
 
     @Override
