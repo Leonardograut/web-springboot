@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.projeto.web.service.exception.ControlerNotFoundException;
+import com.projeto.web.service.exception.DatabaseException;
 
 @ControllerAdvice
 public class ControlerExceptionHandler {
@@ -22,4 +23,16 @@ public class ControlerExceptionHandler {
        StandardError err = new StandardError(Instant.now(),status.value(), error, e.getMessage(), request.getRequestURI());
        return ResponseEntity.status(status).body(err);
     }
+
+
+
+    @ExceptionHandler(DatabaseException.class)
+    public ResponseEntity<StandardError>database(DatabaseException e, HttpServletRequest request){
+        String error = "Database erro";
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+       StandardError err = new StandardError(Instant.now(),status.value(), error, e.getMessage(), request.getRequestURI());
+       return ResponseEntity.status(status).body(err);
+    }
+
+
 }
