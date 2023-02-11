@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.projeto.web.model.Usuario;
 import com.projeto.web.repository.UsuarioRepository;
+import com.projeto.web.service.exception.ControlerNotFoundException;
 
 @Service
 public class UsuarioService {
@@ -23,7 +24,7 @@ public class UsuarioService {
 
     public Usuario findById(Long id){
         Optional<Usuario> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ControlerNotFoundException(id));
 
      
     }
