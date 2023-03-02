@@ -4,4 +4,4 @@
 
 
 
-![1_vFiGOTV1S8yz0RTIQteTjw](https://user-images.githubusercontent.com/98924684/219408740-cab05c24-561c-4291-a6aa-84331636c68f.png)
+![java-spring-maven-hibernate-mysql-sample](https://user-images.githubusercontent.com/98924684/222532602-439a0d8a-e701-42a1-8c3c-79a6d093fc1c.png)
